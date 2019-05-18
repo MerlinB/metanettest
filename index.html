@@ -10,15 +10,15 @@
 		<script>
 		  const div = document.getElementById('my-money-button')
 		  moneyButton.render(div, {
-		    to: "3553",
-		    amount: "0.01",
-		    currency: "USD",
-		    label: "Publish data to the Metanet!",
-		    opReturn: bsv.Script.buildDataOut(['HELLOMETANET hello world!']).toASM(),
+				outputs: [{
+					type: 'SCRIPT',
+					script: bsv.Script.buildDataOut(['HELLOMETANET ', 'hello world!']).toASM(),
+					amount: '0',
+					curency: 'BSV'
+				}],
+		    label: "Publish",
 		    clientIdentifier: "e89252d796ff2ebfd6024c75e3bdf19b",
 		    buttonId: "234325",
-		    buttonData: "{}",
-		    type: "tip",
 		    onPayment: function (arg) { console.log('onPayment', arg) },
 		    onError: function (arg) { console.log('onError', arg) }
 		  })
