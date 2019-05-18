@@ -1,0 +1,23 @@
+<html>
+	<head></head>
+	<body>
+		<script src="https://www.moneybutton.com/moneybutton.js"></script>
+		<div id='my-money-button'></div>
+		<script>
+		  const div = document.getElementById('my-money-button')
+		  moneyButton.render(div, {
+		    to: "3553",
+		    amount: "0.01",
+		    currency: "EUR",
+		    label: "Publish data to hellometanet!",
+		    opReturn: "hellometanet",
+		    clientIdentifier: "some public client identifier",
+		    buttonId: "234325",
+		    buttonData: "{}",
+		    type: "buy",
+		    onPayment: function (arg) { console.log('onPayment', arg) },
+		    onError: function (arg) { console.log('onError', arg) }
+		  })
+		</script>
+	</body>
+</html>
