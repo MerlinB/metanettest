@@ -1,20 +1,24 @@
+<!DOCTYPE html>
 <html>
-	<head></head>
-	<body>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="https://unpkg.com/bsv@0.26.4/bsv.min.js"></script>
 		<script src="https://www.moneybutton.com/moneybutton.js"></script>
+	</head>
+	<body>
 		<div id='my-money-button'></div>
 		<script>
 		  const div = document.getElementById('my-money-button')
 		  moneyButton.render(div, {
 		    to: "3553",
 		    amount: "0.01",
-		    currency: "EUR",
-		    label: "Publish data to hellometanet!",
-		    opReturn: "hellometanet",
-		    clientIdentifier: "some public client identifier",
+		    currency: "USD",
+		    label: "Publish data to the Metanet!",
+		    opReturn: bsv.Script.buildDataOut(['HELLOMETANET hello world!']).toASM(),
+		    clientIdentifier: "e89252d796ff2ebfd6024c75e3bdf19b",
 		    buttonId: "234325",
 		    buttonData: "{}",
-		    type: "buy",
+		    type: "tip",
 		    onPayment: function (arg) { console.log('onPayment', arg) },
 		    onError: function (arg) { console.log('onError', arg) }
 		  })
